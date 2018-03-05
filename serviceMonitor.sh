@@ -1,6 +1,6 @@
 #Script to monitor running services
 #Author Muzammil
-#Last Updated on 20/11/2017
+#Last Updated on 05/03/2018
 #!/bin/sh
 
 COLOR='\033[0;31m'
