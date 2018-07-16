@@ -19,7 +19,7 @@ generalLog='/home/'$USER'/logs/shellLogs/serviceLog.log'
 echo `date +'%Y-%m-%dT%H:%M:%SZ'` > $generalLog
 while IFS='' read -r serviceProp || [[ -n "$serviceProp" ]]; do
 eval $serviceProp
-serviceLog='/home/mpuser/logs/shellLogs/'$name'Log.log'
+serviceLog='/home/'$USER'/logs/shellLogs/'$name'Log.log'
 echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" #>> $generalLog
 echo "Check Against = "$check #>> $generalLog
 echo "Command = "$cmd #>> $generalLog
