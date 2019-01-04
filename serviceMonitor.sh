@@ -8,6 +8,8 @@ reset=`tput sgr0`
 
 if [ ! -f "/home/"$USER"/config/shellscript/serviceProperties.properties" ]; then
         echo -e "${COLOR}Property file not found. Please create one called serviceProperties.properties within ~/config/shellscript ${reset}"
+        echo -e "${COLOR}Format :"
+        `curl https://raw.githubusercontent.com/MuzammilM/serviceMonitorLinux/master/serviceProperties.properties`
         exit
 fi
 
@@ -28,7 +30,7 @@ echo "Name = "$name #>> $generalLog
 psValue="ps"
 if [ "$process" == "$psValue" ]
   then
-    cnt=`ps -eaflc --sort stime | grep "$check" |grep -v grep | wc -l`
+    cnt=`ps aux | grep "$check" |grep -v grep | wc -l`
     echo "using ps"
     echo "count is "$cnt
 else
