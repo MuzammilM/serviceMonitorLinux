@@ -1,6 +1,6 @@
 #Script to monitor running services
 #Author Muzammil
-#Last Updated on 05/03/2018
+#Last Updated on 20190104
 #!/bin/sh
 
 COLOR='\033[0;31m'
@@ -43,7 +43,8 @@ if [ $cnt = 0 ]
     nohup $cmd > /dev/null &
     echo $name" Process Not running" >> $serviceLog
     #Notification module to send SMS
-    java -jar /home/$USER/bin/jars/sms.jar "1234567890,0987654321" $name "Restarted in "$HOSTNAME"-"$ENV
+    bash ~/bin/shellscript/slackBotMachinePulse.sh sre $name restarted in $HOSTNAME - $ENV
+    bash bin/shellscript/slackBotMachinePulse.sh sre Available disk space $c in $HOSTNAME - $ENV
     c=`df -h | head -n 2 | tail -n 1 | awk '{print $4}'`
     echo `date +'%Y-%m-%dT%H:%M:%SZ'` $name 'started' >> $serviceLog
     continue
